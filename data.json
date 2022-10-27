@@ -13,7 +13,7 @@
       "email": "gajrags@chetu.com",
       "phone": "98677898798",
       "website": "www.gajraj.com",
-      "id": 3
+      "id": 2
     },
     {
       "name": "Vishal kumar",
@@ -21,7 +21,7 @@
       "email": "vishalkumar@chetu.com",
       "phone": "987654321",
       "website": "www.vishalkumar.com",
-      "id": 4
+      "id": 3
     },
     {
       "name": "Shadab Khan",
@@ -29,7 +29,7 @@
       "email": "shadabkhan@example.com",
       "phone": "9876543320",
       "website": "www.google.com",
-      "id": 5
+      "id": 4
     },
     {
       "name": "Sahil Malik",
@@ -37,14 +37,6 @@
       "email": "sahilmalik2506@exmple.com",
       "phone": "9874563210",
       "website": "www.sahilmalik.com",
-      "id": 6
-    },
-    {
-      "name": "Sahil Malik00",
-      "username": "sahilmalik01235",
-      "email": "sahilmalik055@exmple.com",
-      "phone": "9874563210",
-      "website": "www.sahilmalikccccccccc.com",
-      "id": 7
+      "id": 5
     }
   ]
