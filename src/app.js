@@ -7,10 +7,10 @@ app.use(cors());
 const port = process.env.PORT || 3002
 
 
-const apidata = require("./data.json")
+const apidata = require("../data.json")
 
 app.get("/", (req, res) => {
-    res.send("Hello I am live")
+    res.send("Hello I am live Now")
 });
 
 app.get("/users", (req, res) => {
