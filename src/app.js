@@ -27,7 +27,7 @@ app.post("/addUsers", (req, res) => {
         website : req.body.website
     });
 
-    user.save().then((user)=>{
+    user.save().then(()=>{
         res.status(201).send(user)
     }).catch((error) => {
         res.status(400).send(error)
