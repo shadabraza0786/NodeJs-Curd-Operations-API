@@ -25,15 +25,19 @@ app.post("/addUser", (req, res) => {
     
 })
 
-app.get("/getUsers", async (req, res) => {
+app.get("/getUsers", (req, res) => {
+    res.send("this is users data")
+})
 
-    try{
-        const UsersData  = await Users.find();
-        res.send(UsersData)
-    }catch(error){
-        res.send(error)
-    }
-});
+// app.get("/getUsers", async (req, res) => {
+
+//     try{
+//         const UsersData  = await Users.find();
+//         res.send(UsersData)
+//     }catch(error){
+//         res.send(error)
+//     }
+// });
 
 app.listen(port, () => {
     console.log(`connection is setup at ${port}`)
