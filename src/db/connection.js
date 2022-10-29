@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 var config = require('../../config/index');
 
 
-mongoose.connect(config.database.uri || config.connectionString ).then(() =>{
+mongoose.connect(config.database.uri || config.database.baseUrl ).then(() =>{
     console.log("Connection is Successfull......");
 }).catch((error) =>{
     console.log("No Connection", error);
