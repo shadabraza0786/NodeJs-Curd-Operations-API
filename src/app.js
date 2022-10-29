@@ -19,8 +19,8 @@ app.post("/addUser", (req, res) => {
     const user = new Users(req.body);
     user.save().then(() =>{
         res.status(201).send(user)
-    }).catch((e) => {
-        res.status(400).send(e)
+    }).catch((error) => {
+        res.status(400).send(error)
     })
     
 })
@@ -30,8 +30,8 @@ app.get("/getUsers", async (req, res) => {
     try{
         const UsersData  = await Users.find();
         res.send(UsersData)
-    }catch(e){
-        res.send(e)
+    }catch(error){
+        res.send(error)
     }
 });
 
