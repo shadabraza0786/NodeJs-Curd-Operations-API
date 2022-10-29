@@ -28,14 +28,10 @@ const addUserSchema = new mongoose.Schema({
         required:true,
         unique : true
     },
-    // company : {
-    //         type:String,
-    //         required:true   
-    // },
     website : {
         type:String,
         required:true
-    },
+    }
 })
 
 const AddUser = new mongoose.model("AddUser", addUserSchema);

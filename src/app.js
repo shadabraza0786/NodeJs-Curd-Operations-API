@@ -7,22 +7,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT || 3005
+// const port = process.env.PORT || 3005
 
-
-// const apidata = require("../data.json")
+// const port = 3005
 
 app.get("/", (req, res) => {
     res.send("Hello I am live")
 });
-
-// app.post("/addUser", async(req, res) =>{
-//     try{
-//         const user = new AddUser(req.body);
-//         const addUser = await user.save();
-//         res.status(200).send(addUser);
-//     }catch(e){res.status(400).send(e); }
-// })
 
 app.post("/addUser", (req, res) => {
     console.log(req.body)
@@ -45,6 +36,6 @@ app.get("/getUsers", async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`connection is setup at ${port}`)
+app.listen(3005, () => {
+    console.log(`connection is setup at 3005`)
 })
