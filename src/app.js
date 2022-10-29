@@ -7,9 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// const port = process.env.PORT || 3005
+const port = process.env.PORT || 3005
 
-// const port = 3005
 
 app.get("/", (req, res) => {
     res.send("Hello I am live")
@@ -36,6 +35,6 @@ app.get("/getUsers", async (req, res) => {
     }
 });
 
-app.listen(3005, () => {
-    console.log(`connection is setup at 3005`)
+app.listen(port, () => {
+    console.log(`connection is setup at ${port}`)
 })
