@@ -15,13 +15,16 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addUser", (req, res) => {
-    console.log(req.body)
-    const user = new Users(req.body);
-    user.save().then(() =>{
-        res.status(201).send(user)
-    }).catch((error) => {
-        res.status(400).send(error)
-    })
+
+    res.send("Data has been sent successfully");
+
+    // console.log(req.body)
+    // const user = new Users(req.body);
+    // user.save().then(() =>{
+    //     res.status(201).send(user)
+    // }).catch((error) => {
+    //     res.status(400).send(error)
+    // })
     
 })
 
