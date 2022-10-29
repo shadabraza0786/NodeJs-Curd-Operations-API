@@ -2,13 +2,17 @@ const express = require("express");
 require("./db/connection")
 const Users = require("./models/addUsers");
 const cors = require("cors");
+const { urlencoded } = require("express");
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+
 
 const port = process.env.PORT || 3005
 
+//middlewares
+app.use(express.json());
+app.use(urlencoded({extended:true}));
 
 app.get("/", (req, res) => {
     res.send("Hello I am live")
