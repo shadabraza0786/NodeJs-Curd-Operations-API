@@ -16,31 +16,31 @@ app.get("/", (req, res) => {
 
 app.post("/addUser", (req, res) => {
 
-    res.send("Data has been sent successfully");
+    // res.send("Data has been sent successfully");
 
-    // console.log(req.body)
-    // const user = new Users(req.body);
-    // user.save().then(() =>{
-    //     res.status(201).send(user)
-    // }).catch((error) => {
-    //     res.status(400).send(error)
-    // })
+    console.log(req.body)
+    const user = new Users(req.body);
+    user.save().then(() =>{
+        res.status(201).send(user)
+    }).catch((error) => {
+        res.status(400).send(error)
+    })
     
 })
 
-app.get("/getUsers", (req, res) => {
-    res.send("this is users data")
-})
+// app.get("/getUsers", (req, res) => {
+//     res.send("this is users data")
+// })
 
-// app.get("/getUsers", async (req, res) => {
+app.get("/getUsers", async (req, res) => {
 
-//     try{
-//         const UsersData  = await Users.find();
-//         res.send(UsersData)
-//     }catch(error){
-//         res.send(error)
-//     }
-// });
+    try{
+        const UsersData  = await Users.find();
+        res.send(UsersData)
+    }catch(error){
+        res.send(error)
+    }
+});
 
 app.listen(port, () => {
     console.log(`connection is setup at ${port}`)
