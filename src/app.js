@@ -18,19 +18,33 @@ app.get("/", (req, res) => {
     res.send("Hello I am live")
 });
 
-app.post("/addUser", (req, res) => {
+app.use("/addUsers", (req, res) => {
+    user = new Users({
+        name : req.body.name,
+        username : req.body.username,
+        email : req.body.email,
+        phone : req.body.phone,
+        website : req.body.website
+    });
 
-    // res.send("Data has been sent successfully");
-
-    console.log(req.body)
-    const user = new Users(req.body);
-    user.save().then(() =>{
+    user.save().then((user)=>{
         res.status(201).send(user)
     }).catch((error) => {
         res.status(400).send(error)
-    })
+    });
+});
+
+// app.post("/addUser", (req, res) => {
+
+//       console.log(req.body)
+//     const user = new Users(req.body);
+//     user.save().then(() =>{
+//         res.status(201).send(user)
+//     }).catch((error) => {
+//         res.status(400).send(error)
+//     })
     
-})
+// })
 
 // app.get("/getUsers", (req, res) => {
 //     res.send("this is users data")
