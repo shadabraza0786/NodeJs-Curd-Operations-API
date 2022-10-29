@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
     res.send("Hello I am live")
 });
 
-app.use("/addUsers", (req, res) => {
+app.post("/addUsers", (req, res) => {
     user = new Users({
         name : req.body.name,
         username : req.body.username,
