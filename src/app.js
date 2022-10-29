@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addUsers", (req, res) => {
-    user = new Users({
+    const user = new Users({
         name : req.body.name,
         username : req.body.username,
         email : req.body.email,
