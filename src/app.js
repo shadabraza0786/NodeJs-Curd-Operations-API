@@ -65,7 +65,6 @@ app.put("/:usersId", async (req, res) => {
             phone: req.body.phone,
             website: req.body.website,
         },
-        { new: true }
     );
     if (!updateUser) {
         res.status(404).send("User Not found")
