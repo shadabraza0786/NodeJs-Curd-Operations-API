@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-    res.send("Hello I am live")
+    res.send("Hello I am live Now")
 });
 
 // Post Request
