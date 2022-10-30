@@ -46,7 +46,7 @@ app.get("/getUsers", (req, res) => {
 app.get("/:usersId", (req, res) => {
     Users.findById(req.params.usersId).then((user) => {
         if (user) res.send(user);
-        res.status(400).send("User not found")
+        res.status(404).send("User not found")
     }).catch((error) => {
         res.status(500).send(error)
     })
@@ -56,20 +56,26 @@ app.get("/:usersId", (req, res) => {
 // Update Users by Id
 
 app.put("/:usersId", async (req, res) => {
-    const updateUser = await Users.findByIdAndUpdate(
-        req.params.usersId,
-        {
-            name : req.body.name,
-            username : req.body.username,
-            email : req.body.email,
-            phone : req.body.phone,
-            website : req.body.website,
-        },
-        {new : true}
-    );
+    const updateUser = await Users.findByIdAndUpdate(req.params.usersId, req.body);
     if (!updateUser) res.status(404).send("User Not found");
     res.send(updateUser)
 })
+
+// app.put("/:usersId", async (req, res) => {
+//     const updateUser = await Users.findByIdAndUpdate(
+//         req.params.usersId,
+//         {
+//             name : req.body.name,
+//             username : req.body.username,
+//             email : req.body.email,
+//             phone : req.body.phone,
+//             website : req.body.website,
+//         },
+//         {new : true}
+//     );
+//     if (!updateUser) res.status(404).send("User Not found");
+//     res.send(updateUser)
+// })
 
 // Delete User Based on Id
 
