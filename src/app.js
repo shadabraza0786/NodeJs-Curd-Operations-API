@@ -45,8 +45,12 @@ app.get("/getUsers", (req, res) => {
 
 app.get("/:usersId", (req, res) => {
     Users.findById(req.params.usersId).then((user) => {
-        if (user) res.send(user);
-        res.status(404).send("User not found")
+        if(user) {
+            res.send(user);
+        }else {
+            res.status(404).send("User not found")
+        }
+        
     }).catch((error) => {
         res.status(500).send(error)
     })
