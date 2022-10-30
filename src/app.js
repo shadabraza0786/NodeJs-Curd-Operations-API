@@ -18,21 +18,7 @@ app.get("/", (req, res) => {
     res.send("Hello I am live")
 });
 
-// app.post("/addUsers", (req, res) => {
-//     const user = new Users({
-//         name : req.body.name,
-//         username : req.body.username,
-//         email : req.body.email,
-//         phone : req.body.phone,
-//         website : req.body.website
-//     });
-
-//     user.save().then(()=>{
-//         res.status(201).send(user)
-//     }).catch((error) => {
-//         res.status(400).send(error)
-//     });
-// });
+// Post Request
 
 app.post("/addUser", (req, res) => {
 
@@ -45,6 +31,8 @@ app.post("/addUser", (req, res) => {
 
 })
 
+// Get All Users
+
 app.get("/getUsers", (req, res) => {
     Users.find().then((users) => {
         res.send(users)
@@ -53,16 +41,46 @@ app.get("/getUsers", (req, res) => {
     })
 })
 
+// Get Users by Id
 
-// app.get("/getUsers", async (req, res) => {
+app.get("/:usersId", (req, res) => {
+    Users.findById(req.params.usersId).then((user) => {
+        if (user) res.send(user);
+        res.status(400).send("User not found")
+    }).catch((error) => {
+        res.status(500).send(error)
+    })
+})
 
-//     try{
-//         const UsersData  = await Users.find();
-//         res.send(UsersData)
-//     }catch(error){
-//         res.send(error)
-//     }
-// });
+
+// Update Users by Id
+
+app.put("/:usersId", async (req, res) => {
+    const updateUser = await Users.findByIdAndUpdate(
+        req.params.usersId,
+        {
+            name : req.body.name,
+            username : req.body.username,
+            email : req.body.email,
+            phone : req.body.phone,
+            website : req.body.website,
+        },
+        {new : true}
+    );
+    if (!updateUser) res.status(404).send("User Not found");
+    res.send(updateUser)
+})
+
+// Delete User Based on Id
+
+app.delete("/:usersId", async (req, res) => {
+    const deleteUser = await Users.findByIdAndRemove(req.params.usersId);
+    if(!deleteUser) {
+        res.status(404).send("User with id not found");
+    }else {
+        res.send(deleteUser);
+    }
+})
 
 app.listen(port, () => {
     console.log(`connection is setup at ${port}`)
